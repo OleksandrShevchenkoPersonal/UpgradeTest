@@ -4,7 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Objects;
 
 public class Browser {
@@ -20,6 +23,12 @@ public class Browser {
 
     public static WebElement getElement(By webElement) {
         return Driver.getWebDriver().findElement(webElement);
+    }
+
+    public static void waitForElementVisibility(By webElement) {
+        WebDriver webDriver = Driver.getWebDriver();
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(webElement));
     }
 
     public static String getTitle() {

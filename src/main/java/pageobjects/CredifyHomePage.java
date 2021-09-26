@@ -16,6 +16,8 @@ public class CredifyHomePage {
     private static final By LOAN_AMOUNT_INPUT_FIELD = By.xpath("//input[@name='desiredAmount']");
     private static final By LOAN_PURPOSE_DROPDOWN = By.xpath("//select[@name='loan-purpose']");
     private static final By CHECK_YOUR_RATE_BUTTON = By.xpath("//button[@data-auto='CheckYourRate']");
+    private static final By CONTINUE_WITH_UPGRADE_LINK = By.xpath("//a[text()='No thanks, I would like to continue with Upgrade']");
+
 
     public static void invokeHomePage() {
         LOG.info("[INFO] Trying to invoke Credify Funnel page page");
@@ -39,5 +41,9 @@ public class CredifyHomePage {
         Browser.getElement(CHECK_YOUR_RATE_BUTTON).click();
     }
 
-
+    public static void clickOnContinueWithUpgradeLink() {
+        LOG.info("[INFO] click on 'No thanks, I would like to continue with Upgrade' link");
+        Browser.waitForElementVisibility(CONTINUE_WITH_UPGRADE_LINK);
+        Browser.getElement(CONTINUE_WITH_UPGRADE_LINK).click();
+    }
 }

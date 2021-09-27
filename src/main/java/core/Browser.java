@@ -31,15 +31,20 @@ public class Browser {
     }
 
     public static void waitForElementVisibility(By webElement) {
-        WebDriver webDriver = Driver.getWebDriver();
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(webElement));
+        getWaiter().until(ExpectedConditions.visibilityOfElementLocated(webElement));
     }
 
-    public static void waitForElementAvailability(By webElement) {
+    public static void waitForElementClickable(By webElement) {
+        getWaiter().until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    public static void waitForElementExists(By webElement) {
+        getWaiter().until(ExpectedConditions.presenceOfElementLocated(webElement));
+    }
+
+    private static WebDriverWait getWaiter() {
         WebDriver webDriver = Driver.getWebDriver();
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+        return new WebDriverWait(webDriver, Duration.ofSeconds(30));
     }
 
     public static String getTitle() {

@@ -20,6 +20,7 @@ public class CredifyOfferPage {
     private static final By APR_LABEL = By.xpath("//li/div[@data-auto='defaultAPR']");
     private static final By MENU_BUTTON = By.xpath("//label[@class='header-nav__toggle']");
     private static final By LOGOUT_MENU_BUTTON = By.xpath("//a[contains(@href, 'funnel/logout')]");
+    private static final By LOADING_COMPLETE_POINTER = By.xpath("//div[@data-fetching='false']");
 
     private static WebElement getFasterPayoff() {
         Browser.waitForElementVisibility(FASTER_PAYOFF_LOAN_COMPONENT);
@@ -28,15 +29,13 @@ public class CredifyOfferPage {
 
     public static void userSeesOfferPage() {
         LOG.info("[INFO] User sees the Offer page");
+        Browser.waitForElementExists(LOADING_COMPLETE_POINTER);
         getFasterPayoff();
     }
 
     public static void logOut() {
         LOG.info("[INFO] User Log Out from Offer page");
-        if (!Browser.getElement(MENU_BUTTON).isEnabled()) {
-            Browser.waitForElementVisibility(MENU_BUTTON);
-            Browser.waitForElementAvailability(MENU_BUTTON);
-        }
+        Browser.waitForElementExists(LOADING_COMPLETE_POINTER);
         Browser.getElement(MENU_BUTTON).click();
         Browser.waitForElementVisibility(LOGOUT_MENU_BUTTON);
         Browser.getElement(LOGOUT_MENU_BUTTON).click();

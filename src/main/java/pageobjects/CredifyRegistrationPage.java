@@ -36,7 +36,7 @@ public class CredifyRegistrationPage {
 
     private static String generateEmail() {
         String borrowerEmail = String.format(DefaultCustomerInfo.RANDOM_EMAIL_TEMPLATE,
-                ThreadLocalRandom.current().nextInt(100, 999));
+                ThreadLocalRandom.current().nextInt(10, 99));
         TestCache.putDataInCache(TestCacheKey.EMAIL, borrowerEmail);
         return borrowerEmail;
     }
@@ -56,7 +56,7 @@ public class CredifyRegistrationPage {
 
     public static void userClicksOnCheckYourRateButton() {
         LOG.info("[INFO] User clicks on 'Check Your Rate' button on Registration page");
-        Browser.waitForElementAvailability(CHECK_YOUR_RATE_BUTTON);
+        Browser.waitForElementClickable(CHECK_YOUR_RATE_BUTTON);
         Browser.getElement(CHECK_YOUR_RATE_BUTTON).click();
     }
 }

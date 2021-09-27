@@ -42,7 +42,7 @@ public class CredifyLoginPage {
 
     private static void userClicksOnSignInButton() {
         LOG.info("[INFO] User clicks on 'Sign In to your account' button");
-        Browser.waitForElementAvailability(SIGN_IN_BUTTON);
+        Browser.waitForElementClickable(SIGN_IN_BUTTON);
         Browser.getElement(SIGN_IN_BUTTON).click();
     }
 }

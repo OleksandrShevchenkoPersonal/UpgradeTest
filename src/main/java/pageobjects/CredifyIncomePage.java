@@ -37,7 +37,7 @@ public class CredifyIncomePage {
 
     public static void clickOnContinueButton() {
         LOG.info("[INFO] User clicks on 'Continue' button on borrower Income page");
-        Browser.waitForElementAvailability(CONTINUE_BUTTON);
+        Browser.waitForElementClickable(CONTINUE_BUTTON);
         Browser.getElement(CONTINUE_BUTTON).click();
     }
 }

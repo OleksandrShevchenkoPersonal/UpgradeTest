@@ -25,24 +25,24 @@ public class CredifyHomePage {
     }
 
     public static void setDesiredLoanAmount(final String loanAmount) {
-        LOG.info("[INFO] Set desired Loan Amount on Credify Funnel page");
+        LOG.info("[INFO] User sets desired Loan Amount on Credify Funnel page");
         Browser.getElement(LOAN_AMOUNT_INPUT_FIELD).click();
         Browser.getElement(LOAN_AMOUNT_INPUT_FIELD).sendKeys(loanAmount);
     }
 
     public static void selectLoanPurpose(final LoanPurposeType loanPurpose) {
-        LOG.info("[INFO] Select Loan Purpose on Credify Funnel page");
+        LOG.info("[INFO] User selects Loan Purpose on Credify Funnel page");
         Select loanPurposeSelect = new Select(Browser.getElement(LOAN_PURPOSE_DROPDOWN));
         loanPurposeSelect.selectByVisibleText(loanPurpose.toString());
     }
 
     public static void clickCheckYourRateButton() {
-        LOG.info("[INFO] click Check Your Rate button on Credify Funnel page");
+        LOG.info("[INFO] User clicks Check Your Rate button on Credify Funnel page");
         Browser.getElement(CHECK_YOUR_RATE_BUTTON).click();
     }
 
     public static void clickOnContinueWithUpgradeLink() {
-        LOG.info("[INFO] click on 'No thanks, I would like to continue with Upgrade' link");
+        LOG.info("[INFO] User clicks on 'No thanks, I would like to continue with Upgrade' link");
         Browser.waitForElementVisibility(CONTINUE_WITH_UPGRADE_LINK);
         Browser.getElement(CONTINUE_WITH_UPGRADE_LINK).click();
     }

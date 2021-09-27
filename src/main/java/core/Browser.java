@@ -21,14 +21,25 @@ public class Browser {
         webDriver.get(url);
     }
 
+    public static void navigate(String url) {
+        WebDriver webDriver = Driver.getWebDriver();
+        webDriver.navigate().to(url);
+    }
+
     public static WebElement getElement(By webElement) {
         return Driver.getWebDriver().findElement(webElement);
     }
 
     public static void waitForElementVisibility(By webElement) {
         WebDriver webDriver = Driver.getWebDriver();
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOfElementLocated(webElement));
+    }
+
+    public static void waitForElementAvailability(By webElement) {
+        WebDriver webDriver = Driver.getWebDriver();
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
     public static String getTitle() {

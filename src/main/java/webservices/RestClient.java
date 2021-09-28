@@ -7,7 +7,6 @@ import static io.restassured.RestAssured.given;
 
 import io.vavr.control.Try;
 import org.apache.log4j.Logger;
-import org.assertj.core.api.Assertions;
 import java.util.UUID;
 
 import static webservices.Parser.toJson;
@@ -33,9 +32,4 @@ public class RestClient {
                 .get();
     }
 
-    public static void compareResponseCodes(final int actualCode, final int expectedCode) {
-        Assertions.assertThat(actualCode)
-                .as("The response code is not as expected. Received %d", actualCode)
-                .isEqualTo(expectedCode);
-    }
 }

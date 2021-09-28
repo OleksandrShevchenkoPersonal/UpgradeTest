@@ -4,10 +4,7 @@ import core.Browser;
 import enums.LoanPurposeType;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
-import static java.lang.Thread.sleep;
 
 public class CredifyHomePage {
 

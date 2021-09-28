@@ -1,5 +1,4 @@
-package core.browsers;//package main.java.pac.browsers;
-
+package core.browsers;
 
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;

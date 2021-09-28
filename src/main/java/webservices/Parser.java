@@ -1,7 +1,6 @@
 package webservices;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonParser;
 
 public class Parser {
 

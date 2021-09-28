@@ -1,7 +1,7 @@
 package core.cache;
 
 import enums.TestCacheKey;
-//import org.assertj.core.api.Assertions;
+import org.assertj.core.api.Assertions;
 
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
@@ -31,7 +31,7 @@ public class TestCache {
     public static <T> T get(final TestCacheKey key, final Class<?> type) {
         Object value = getCache().get(key);
         if (Objects.nonNull(value)) {
-            // Assertions.assertThat.as("Incompatible type of returned object").isInstanceOf(type);
+            Assertions.assertThat(value).as("Incompatible type of returned object").isInstanceOf(type);
         }
         return Objects.nonNull(value) ? (T) value : null;
     }

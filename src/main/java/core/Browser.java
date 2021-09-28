@@ -13,6 +13,7 @@ import java.util.Objects;
 public class Browser {
 
     private static final Logger LOG = Logger.getLogger("console");
+    private static final int DEFAULT_WAIT_PERIOD = 30;
 
     public static void open(String url) {
         WebDriver webDriver = Driver.getWebDriver();
@@ -44,7 +45,7 @@ public class Browser {
 
     private static WebDriverWait getWaiter() {
         WebDriver webDriver = Driver.getWebDriver();
-        return new WebDriverWait(webDriver, Duration.ofSeconds(30));
+        return new WebDriverWait(webDriver, Duration.ofSeconds(DEFAULT_WAIT_PERIOD));
     }
 
     public static String getTitle() {

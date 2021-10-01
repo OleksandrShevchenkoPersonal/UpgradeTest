@@ -65,7 +65,7 @@ public class UpgradeInterviewTest {
         LoanData secondaryData = TestCache.get(TestCacheKey.LOAN_DATA, LoanData.class);
 
         Assertions.assertThat(initialData).as("The loan data after login is not as expected!")
-                .isEqualTo(secondaryData);
+                .isEqualToComparingFieldByField(secondaryData);
 
         LOG.info("[INFO] Testcase test_loan_happy_path was completed!");
     }
